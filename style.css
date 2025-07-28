@@ -195,7 +195,7 @@ html, body {
 #about{
     width: 100%;
     background-color: black;
-    padding: 10vw 10vw;
+    padding: 5vw 5vw;
     padding-left: 40vw;
     color: white;
     gap: 50px;
@@ -222,7 +222,7 @@ html, body {
 }
 
 #about img{
-    width: 200px;
+    width: 220px;
 }
 
 #textabout a{
@@ -237,7 +237,7 @@ html, body {
 #subscribe{
     color: #fff;
     padding: 20px 30px;
-    padding-bottom: 7vw;
+    padding-bottom: 5vw;
     background-color: black;
 }
 #subscribe h5{
