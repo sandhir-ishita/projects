@@ -26,7 +26,7 @@ function firstPageAnim() {
             ease: Expo.easeInOut,
             duration: 2,
             delay: -1,
-            Stagger: .2
+            stagger: 0.2
         })
         .from("#herofather", {
             y: -10,
@@ -73,6 +73,7 @@ let timeout ;
             }, 100);
 
         });
+    }
 
 
         function circleMouseFollower(xscale, yscale) {
@@ -83,25 +84,42 @@ let timeout ;
 
         }
 
-    }
-        // firstPageAnim()
-        // circleChaptaKaro()
-        // circleMouseFollower()
+    
+       
 
-
+circleChaptaKaro();
+circleMouseFollower();
+firstPageAnim();
+// this is for the circle to follow the mouse
 
 
         //teeno element select - mouse move- find out mouse kaha hai - means x and y position needed
         // now with the help of x-y position view image then rotate and change the speed of image wrt to mouse
+document.querySelectorAll(".elem").forEach((elem) => {
+var rotate = 0;
+var diffrot = 0;
 
-document.querySelectorAll(".elem").forEach(function (elem) {
-    elem.addEventListener("mousemove", function (details) {
-        console.log(details);
-        
-    });
+    elem.addEventListener("mouseleave", function (dets) {
+     gsap.to(elem.querySelector("img"), {
+      opacity: 0,       
+        ease: Power3,
+        duration: 0.5,
+    } );
+});
+    elem.addEventListener("mousemove", function (dets) {
+      var diff = dets.clientY - elem.getBoundingClientRect().top;
+      diffrot = dets.clientX - rotate;
+      rotate = dets.clientX;
 
-    elem.addEventListener("mouseleave", function () {
-        elem.style.transform = "rotateX(0deg) rotateY(0deg)";
+      gsap.to(elem.querySelector("img"), {
+      opacity: 1,
+      ease: Power1,
+      
+      top: `${diff}px`,
+      left: `${dets.clientX}px`,
+      rotate: gsap.utils.clamp(-20, 20, diffrot * 0.5),
     });
+  });
 
 });
+  

@@ -161,7 +161,7 @@ html, body {
 #second{
     color: #fff;
     padding-right: 10vw;
-    padding-top: 200px;
+    /* padding-top: 200px; */
     background-color: black;
     width: 100%;
     /* height: 100vh; */
@@ -185,11 +185,12 @@ html, body {
     border-bottom: 1px solid #888;
 }
 .elem img{
-    height: 140%;
-    /* opacity: 0; */
-    display: none;
+    height: 100%;
+    opacity: 0;
+    display: block;
     z-index: 999;
     position: absolute;
+    pointer-events: none;
 }
 #about{
     width: 100%;
@@ -257,7 +258,9 @@ html, body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 40px 30px;
+    padding: 20px 20px;
+    box-sizing: border-box;
+    flex-wrap: wrap;
 }
 
 #footerleft {
